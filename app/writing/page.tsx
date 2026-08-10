@@ -1,9 +1,11 @@
 import Link from "next/link";
 
 const topics = [
-  "Artificial Intelligence",
   "Large Language Models",
   "Natural Language Processing",
+  "Machine Learning",
+  "Artificial Intelligence Systems",
+  "Research Papers",
 ];
 
 export default function WritingPage() {
@@ -45,9 +47,8 @@ export default function WritingPage() {
         </h1>
 
         <div className="mt-16 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7 sm:p-10">
-          <h2 className="text-2xl font-medium">Coming soon.</h2>
           <p className="mt-5 text-lg leading-8 text-zinc-400">
-            Technical notes and research reflections on:
+            Technical notes and reflections on:
           </p>
           <ul className="mt-6 space-y-3 text-zinc-300">
             {topics.map((topic) => (
@@ -56,6 +57,7 @@ export default function WritingPage() {
               </li>
             ))}
           </ul>
+          <p className="mt-10 text-2xl font-medium">Coming soon.</p>
         </div>
       </section>
     </main>
