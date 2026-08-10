@@ -9,8 +9,8 @@ type Ripple = {
   y: number;
 };
 
-const RIPPLE_DURATION = 3600;
-const MAX_RIPPLES = 14;
+const RIPPLE_DURATION = 4400;
+const MAX_RIPPLES = 12;
 
 export default function MouseRipple() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -57,7 +57,7 @@ export default function MouseRipple() {
       lastPointer = { x: event.clientX, y: event.clientY, time: now };
       ripples.push({
         age: 0,
-        maxRadius: 220 + Math.min(distance, 80),
+        maxRadius: 280 + Math.min(distance, 70),
         x: event.clientX,
         y: event.clientY,
       });
@@ -93,16 +93,30 @@ export default function MouseRipple() {
         const progress = ripple.age / RIPPLE_DURATION;
         const fade = (1 - progress) ** 2;
 
-        const coreFade = Math.max(0, 1 - progress * 5);
+        const coreFade = Math.max(0, 1 - progress * 4.5);
         if (coreFade > 0) {
+          const glow = context.createRadialGradient(
+            ripple.x,
+            ripple.y,
+            0,
+            ripple.x,
+            ripple.y,
+            18 + progress * 14,
+          );
+          glow.addColorStop(0, `rgba(226, 237, 246, ${coreFade * 0.12})`);
+          glow.addColorStop(1, "rgba(162, 194, 219, 0)");
           context.beginPath();
-          context.arc(ripple.x, ripple.y, 1.5 + progress * 3, 0, Math.PI * 2);
-          context.fillStyle = `rgba(220, 232, 246, ${coreFade * 0.13})`;
+          context.arc(ripple.x, ripple.y, 18 + progress * 14, 0, Math.PI * 2);
+          context.fillStyle = glow;
+          context.fill();
+          context.beginPath();
+          context.arc(ripple.x, ripple.y, 1.4 + progress * 2.6, 0, Math.PI * 2);
+          context.fillStyle = `rgba(229, 238, 247, ${coreFade * 0.16})`;
           context.fill();
         }
 
-        for (let layer = 0; layer < 4; layer += 1) {
-          const delay = layer * 0.1;
+        for (let layer = 0; layer < 5; layer += 1) {
+          const delay = layer * 0.09;
           const layerProgress = Math.max(0, progress - delay) / (1 - delay);
 
           if (layerProgress <= 0) {
@@ -110,11 +124,12 @@ export default function MouseRipple() {
           }
 
           const radius = ripple.maxRadius * layerProgress;
-          const alpha = fade * (0.105 - layer * 0.016);
+          const alpha = fade * (0.1 - layer * 0.014);
           context.beginPath();
           context.arc(ripple.x, ripple.y, radius, 0, Math.PI * 2);
-          context.strokeStyle = `rgba(205, 224, 244, ${alpha})`;
-          context.lineWidth = 0.55 + (1 - layerProgress) * 0.3;
+          const color = layer % 2 === 0 ? "213, 225, 236" : "174, 205, 228";
+          context.strokeStyle = `rgba(${color}, ${alpha})`;
+          context.lineWidth = 0.5 + (1 - layerProgress) * 0.28;
           context.stroke();
         }
       }

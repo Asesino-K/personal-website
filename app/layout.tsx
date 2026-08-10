@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import CursorGlow from "@/components/CursorGlow";
 import MouseRipple from "@/components/MouseRipple";
+import ParticleField from "@/components/ParticleField";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <ParticleField />
         <MouseRipple />
         <CursorGlow />
         <div className="relative z-10 flex min-h-full flex-1 flex-col">{children}</div>

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #060607;
-  --foreground: #f5f5f7;
+  --background: #05070a;
+  --foreground: #eef3f7;
 }
 
 @theme inline {
@@ -22,9 +22,12 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(90rem 52rem at 50% -20rem, rgba(165, 178, 206, 0.15), transparent 64%),
-    radial-gradient(46rem 38rem at 100% 22%, rgba(79, 72, 102, 0.16), transparent 72%),
+    radial-gradient(88rem 58rem at 50% -26rem, rgba(57, 93, 124, 0.2), transparent 63%),
+    radial-gradient(52rem 42rem at 104% 18%, rgba(94, 22, 40, 0.09), transparent 72%),
+    radial-gradient(40rem 34rem at -8% 72%, rgba(27, 73, 101, 0.13), transparent 70%),
+    radial-gradient(rgba(214, 229, 239, 0.028) 0.55px, transparent 0.7px),
     var(--background);
+  background-size: auto, auto, auto, 5px 5px, auto;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
@@ -45,8 +48,8 @@ body::before {
   left: -14rem;
   width: 34rem;
   height: 34rem;
-  background: radial-gradient(circle, rgba(112, 130, 167, 0.22), transparent 68%);
-  animation: ambient-drift 24s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgba(27, 73, 101, 0.28), transparent 68%);
+  animation: ambient-drift 27s ease-in-out infinite alternate;
 }
 
 body::after {
@@ -54,12 +57,12 @@ body::after {
   bottom: 10vh;
   width: 38rem;
   height: 38rem;
-  background: radial-gradient(circle, rgba(112, 91, 150, 0.17), transparent 68%);
-  animation: ambient-drift 29s ease-in-out infinite alternate-reverse;
+  background: radial-gradient(circle, rgba(94, 22, 40, 0.2), transparent 68%);
+  animation: ambient-drift 23s ease-in-out infinite alternate-reverse;
 }
 
 ::selection {
-  background: rgba(244, 244, 245, 0.2);
+  background: rgba(195, 217, 232, 0.2);
   color: #fff;
 }
 
@@ -76,7 +79,7 @@ body::after {
   width: min(70rem, 130vw);
   height: min(34rem, 62vw);
   transform: translateX(-50%);
-  background: radial-gradient(ellipse, rgba(212, 212, 216, 0.12), rgba(63, 63, 70, 0.045) 43%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(142, 184, 212, 0.14), rgba(18, 48, 74, 0.09) 43%, transparent 70%);
 }
 
 .hero-orb-two {
@@ -84,7 +87,7 @@ body::after {
   bottom: 2rem;
   width: 28rem;
   height: 28rem;
-  background: radial-gradient(circle, rgba(113, 113, 122, 0.1), transparent 68%);
+  background: radial-gradient(circle, rgba(122, 36, 56, 0.08), transparent 68%);
 }
 
 .cursor-glow {
@@ -95,8 +98,8 @@ body::after {
   width: min(34rem, 72vw);
   aspect-ratio: 1;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(156, 170, 214, 0.095), rgba(113, 98, 160, 0.042) 34%, transparent 68%);
-  filter: blur(18px);
+  background: radial-gradient(circle, rgba(142, 187, 218, 0.1), rgba(174, 190, 218, 0.04) 32%, rgba(94, 22, 40, 0.025) 52%, transparent 70%);
+  filter: blur(26px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 900ms ease;
@@ -107,17 +110,57 @@ body::after {
   position: absolute;
   display: flex;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(201, 215, 225, 0.22);
   border-radius: 9999px;
-  background: rgba(24, 24, 27, 0.4);
+  background: linear-gradient(135deg, rgba(27, 73, 101, 0.24), rgba(5, 7, 10, 0.38));
   padding: 0.55rem 0.8rem;
-  color: rgba(228, 228, 231, 0.82);
+  color: rgba(221, 231, 238, 0.86);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   backdrop-filter: blur(16px);
   pointer-events: none;
+}
+
+.surface-card {
+  border: 1px solid rgba(191, 209, 221, 0.14);
+  background: linear-gradient(145deg, rgba(27, 73, 101, 0.19), rgba(8, 19, 31, 0.43) 48%, rgba(94, 22, 40, 0.08));
+  box-shadow: inset 0 1px 0 rgba(233, 241, 247, 0.04);
+  backdrop-filter: blur(22px);
+}
+
+.project-card {
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), background-color 360ms ease, border-color 360ms ease;
+}
+
+.project-card:hover {
+  border-color: rgba(201, 220, 231, 0.3);
+  background-color: rgba(18, 48, 74, 0.46);
+  transform: translateY(-6px);
+}
+
+.prism-element {
+  position: absolute;
+  z-index: 0;
+  top: 14%;
+  right: max(2%, calc((100vw - 78rem) / 2));
+  width: min(28rem, 42vw);
+  opacity: 0.5;
+  pointer-events: none;
+  transform-origin: center;
+  animation: prism-drift 22s ease-in-out infinite alternate;
+}
+
+.whale-atmosphere {
+  position: absolute;
+  z-index: 0;
+  bottom: 3%;
+  left: -8%;
+  width: min(54rem, 88vw);
+  opacity: 0.035;
+  pointer-events: none;
+  transform: rotate(-5deg);
 }
 
 @keyframes ambient-drift {
@@ -130,20 +173,14 @@ body::after {
   }
 }
 
-.surface-card {
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  background: linear-gradient(145deg, rgba(39, 39, 42, 0.55), rgba(24, 24, 27, 0.28));
-  backdrop-filter: blur(18px);
-}
+@keyframes prism-drift {
+  from {
+    transform: rotate(-7deg) translate3d(-1%, -2%, 0);
+  }
 
-.project-card {
-  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), background-color 360ms ease, border-color 360ms ease;
-}
-
-.project-card:hover {
-  border-color: rgba(255, 255, 255, 0.19);
-  background-color: rgba(39, 39, 42, 0.62);
-  transform: translateY(-6px);
+  to {
+    transform: rotate(-2deg) translate3d(4%, 3%, 0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -161,7 +198,8 @@ body::after {
   }
 
   body::before,
-  body::after {
+  body::after,
+  .prism-element {
     display: none;
   }
 }

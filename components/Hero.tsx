@@ -1,6 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import Prism from "@/components/Prism";
+import WhaleAtmosphere from "@/components/WhaleAtmosphere";
 
 const entrance = {
   hidden: { opacity: 0, y: 22 },
@@ -15,6 +17,8 @@ export default function Hero() {
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-6 pb-16 pt-32 sm:px-10 lg:px-16">
       <div aria-hidden="true" className="hero-orb hero-orb-one" />
       <div aria-hidden="true" className="hero-orb hero-orb-two" />
+      <Prism />
+      <WhaleAtmosphere />
       {[
         { className: "left-[9%] top-[30%]", label: "NLP", duration: 5.5 },
         { className: "right-[10%] top-[25%]", label: "LLM", duration: 6.2 },
