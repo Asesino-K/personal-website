@@ -14,7 +14,7 @@ export default function Hero() {
   const initial = shouldReduceMotion ? false : "hidden";
 
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-6 pb-16 pt-32 sm:px-10 lg:px-16">
+    <section className="hero-observatory relative flex min-h-[100svh] items-center justify-center overflow-hidden px-6 pb-16 pt-32 sm:px-10 lg:px-16">
       <div aria-hidden="true" className="hero-orb hero-orb-one" />
       <div aria-hidden="true" className="hero-orb hero-orb-two" />
       <Prism />
@@ -51,7 +51,7 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           variants={entrance}
         >
-          Lumen Chen · Computer Science · NLP · LLM · Human-Centered AI
+          Digital Ocean Observatory · Lumen Chen
         </motion.p>
 
         <motion.h1
@@ -59,7 +59,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           variants={entrance}
         >
-          Building intelligence<br />that understands<br />language and humans.
+          Observe what<br />intelligence <em>feels</em> like<br />beneath language.
         </motion.h1>
 
         <motion.p
@@ -67,7 +67,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           variants={entrance}
         >
-          Exploring language, context, and the human side of intelligent systems.
+          Computer Science · NLP · LLM · Human-Centered AI
         </motion.p>
 
         <motion.div
@@ -101,9 +101,9 @@ export default function Hero() {
           </motion.a>
         </motion.div>
 
-        <motion.p className="mt-20 text-[10px] font-medium uppercase tracking-[0.34em] text-zinc-500" transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} variants={entrance}>
-          Deep Ocean · Prism · Intelligence
-        </motion.p>
+        <motion.div className="hero-coordinate" transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} variants={entrance}>
+          <span>01° 14′ N</span><span>Depth / Unknown</span><span>Scroll to descend ↓</span>
+        </motion.div>
       </motion.div>
     </section>
   );
