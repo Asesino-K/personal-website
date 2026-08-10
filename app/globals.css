@@ -488,6 +488,8 @@ body::after {
 .scene-wave span:nth-of-type(1) { bottom: 9%; opacity: 1; transform: rotate(-9deg); }
 .scene-wave span:nth-of-type(2) { bottom: 17%; opacity: .55; transform: rotate(-13deg) scaleX(.8); }
 .scene-wave span:nth-of-type(3) { bottom: 25%; opacity: .25; transform: rotate(-18deg) scaleX(.55); }
+.scene-wave:not(.asset-fallback)::before { position: absolute; z-index: 2; top: 13%; right: -4%; width: min(76vw, 82rem); height: 74%; border-radius: 2.5rem; background: linear-gradient(112deg, transparent 18%, rgba(217,243,255,.05) 35%, rgba(255,255,255,.34) 47%, rgba(143,211,255,.1) 53%, transparent 69%); background-size: 210% 100%; mix-blend-mode: screen; content: ""; opacity: .64; animation: water-shimmer 9s ease-in-out infinite; pointer-events: none; }
+@keyframes water-shimmer { 0%, 100% { background-position: 145% 0; opacity: .28; } 50% { background-position: -45% 0; opacity: .72; } }
 @media (max-width: 700px) { .cinematic-nav { padding: 1.1rem 0; }.cinematic-nav nav { gap: .8rem; }.cinematic-nav nav a { font-size: .5rem; }.product-hero { align-items: end; }.eye-object { top: 19%; width: 128vw; }.hero-headline h1 { font-size: clamp(4rem, 14vw, 6rem); }.product-scene { padding: 7rem 1.5rem; }.scene-copy h2 { font-size: clamp(4.2rem, 18vw, 7rem); }.intelligence-copy { text-align: left; }.glass-spec { justify-content: flex-start; margin-left: 0; }.scroll-cue { font-size: .54rem; white-space: nowrap; } }
 
 /* Light material system: the imagery supplies the darkness, the page supplies space. */

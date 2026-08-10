@@ -21,11 +21,11 @@ export default function ProductExperience() {
       const eye = element.querySelector(".eye-object");
       const headline = element.querySelector(".hero-headline");
       if (hero && eye && headline) {
+        gsap.fromTo(eye, { filter: "blur(20px)", opacity: 0, scale: 0.8 }, { filter: "blur(0px)", opacity: 1, scale: 1, duration: 1.15, ease: "power2.out" });
+        gsap.fromTo(headline, { filter: "blur(14px)", opacity: 0, y: 44 }, { filter: "blur(0px)", opacity: 1, y: 0, duration: 0.9, delay: 0.16, ease: "power2.out" });
         gsap.timeline({ scrollTrigger: { trigger: hero, start: "top top", end: "+=140%", scrub: 0.8, pin: true } })
-          .fromTo(eye, { filter: "blur(20px)", opacity: 0, scale: 0.8 }, { filter: "blur(0px)", opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" })
-          .fromTo(headline, { filter: "blur(14px)", opacity: 0, y: 44 }, { filter: "blur(0px)", opacity: 1, y: 0, duration: 0.32, ease: "power2.out" }, 0.12)
-          .to(eye, { opacity: 0.22, scale: 1.16, x: 45, y: -35, duration: 0.45, ease: "none" })
-          .to(headline, { opacity: 0.14, y: -90, duration: 0.35, ease: "none" }, "<");
+          .to(eye, { opacity: 0.22, scale: 1.16, x: 45, y: -35, duration: 1, ease: "none" })
+          .to(headline, { opacity: 0.14, y: -90, duration: 1, ease: "none" }, "<");
       }
       gsap.utils.toArray<HTMLElement>("[data-scene]").forEach((scene) => {
         const copy = scene.querySelector("[data-scene-copy]");
