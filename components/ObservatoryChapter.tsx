@@ -8,6 +8,7 @@ type ObservatoryChapterProps = {
   index: string;
   kicker: string;
   title: ReactNode;
+  id?: string;
   className?: string;
 };
 
@@ -16,6 +17,7 @@ export default function ObservatoryChapter({
   index,
   kicker,
   title,
+  id,
   className = "",
 }: ObservatoryChapterProps) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -25,7 +27,7 @@ export default function ObservatoryChapter({
   const opacity = useTransform(scrollYProgress, [0, 0.18, 0.82, 1], shouldReduceMotion ? [1, 1, 1, 1] : [0, 1, 1, 0.2]);
 
   return (
-    <section className={`observatory-chapter ${className}`} ref={sectionRef}>
+    <section className={`observatory-chapter ${className}`} id={id} ref={sectionRef}>
       <motion.div className="relative z-10" style={{ opacity, y }}>
         <div className="chapter-marker">
           <span>{index}</span>

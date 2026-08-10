@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import CursorGlow from "@/components/CursorGlow";
+import CinematicBackground from "@/components/CinematicBackground";
 import MouseRipple from "@/components/MouseRipple";
-import OceanBackground from "@/components/OceanBackground";
 import OceanParticles from "@/components/OceanParticles";
 import "./globals.css";
 
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <OceanBackground />
+        <CinematicBackground />
         <OceanParticles />
         <MouseRipple />
         <CursorGlow />

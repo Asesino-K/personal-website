@@ -42,25 +42,27 @@ export default function Prism() {
       ref={prismRef}
     >
       <defs>
-        <linearGradient id="prism-face-one" x1="70" x2="322" y1="48" y2="360">
-          <stop stopColor="#DCE7F0" stopOpacity="0.46" />
-          <stop offset="0.48" stopColor="#4A7796" stopOpacity="0.2" />
-          <stop offset="1" stopColor="#8B7AA8" stopOpacity="0.3" />
+        <linearGradient id="prism-face-one" x1="72" x2="340" y1="64" y2="348">
+          <stop stopColor="#D9F3FF" stopOpacity="0.5" />
+          <stop offset="0.44" stopColor="#4A7796" stopOpacity="0.2" />
+          <stop offset="1" stopColor="#9C83C6" stopOpacity="0.32" />
         </linearGradient>
-        <linearGradient id="prism-face-two" x1="102" x2="330" y1="84" y2="320">
-          <stop stopColor="#B7D2E4" stopOpacity="0.28" />
-          <stop offset="1" stopColor="#102C44" stopOpacity="0.08" />
+        <linearGradient id="prism-face-two" x1="104" x2="356" y1="80" y2="316">
+          <stop stopColor="#B7D2E4" stopOpacity="0.34" />
+          <stop offset="1" stopColor="#071B33" stopOpacity="0.08" />
         </linearGradient>
         <filter id="prism-soften" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="0.4" />
         </filter>
       </defs>
       <g filter="url(#prism-soften)">
-        <path d="M210 36 366 314 54 314 210 36Z" fill="url(#prism-face-one)" />
-        <path d="m210 36 156 278-156-76V36Z" fill="url(#prism-face-two)" />
-        <path d="m210 36-156 278 156-76V36Z" fill="#D7E4EE" fillOpacity="0.11" />
-        <path d="m54 314 156-76 156 76" stroke="#D7E4EE" strokeOpacity="0.34" />
-        <path d="M210 36v202" stroke="#D7E4EE" strokeOpacity="0.28" />
+        <path d="m132 62 158 44 72 148-158 105-118-126 46-171Z" fill="url(#prism-face-one)" />
+        <path d="m132 62 158 44-86 127-118 0 46-171Z" fill="#D9F3FF" fillOpacity="0.13" />
+        <path d="m290 106 72 148-158 105V233l86-127Z" fill="url(#prism-face-two)" />
+        <path d="m86 233 118 0v126L86 233Z" fill="#6B1E32" fillOpacity="0.13" />
+        <path d="m132 62 158 44 72 148-158 105-118-126 46-171Z" stroke="#D9F3FF" strokeOpacity="0.44" />
+        <path d="M86 233h118m0 0 86-127m-86 127 158 21M132 62l72 171" stroke="#D9F3FF" strokeOpacity="0.3" />
+        <path d="m55 130 101-36m110 21 101-25m-18 216 55 20" stroke="#9C83C6" strokeOpacity="0.2" />
       </g>
     </svg>
   );

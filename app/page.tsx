@@ -21,11 +21,14 @@ export default function Home() {
       <SiteNav />
       <Hero />
 
+      <div aria-hidden="true" className="chapter-progress"><span>01</span><i /><span>02</span><i /><span>03</span></div>
+
       <div className="observatory-shell">
         <ObservatoryChapter
+          id="chapter-one"
           index="01"
           kicker="The Ocean of Language"
-          title={<>Meaning moves <span>beneath</span> the surface.</>}
+          title={<>The ocean of <span>language.</span></>}
         >
           <div className="chapter-grid mt-14 lg:mt-20">
             <p className="chapter-lead">
@@ -49,10 +52,11 @@ export default function Home() {
         </ObservatoryChapter>
 
         <ObservatoryChapter
+          id="about"
           className="chapter-intelligence"
           index="02"
           kicker="Building Intelligence"
-          title={<>A human signal in an <span>expanding</span> field.</>}
+          title={<>Building <span>intelligence.</span></>}
         >
           <div className="intelligence-stage mt-14 lg:mt-20">
             <div className="intelligence-orbit" aria-hidden="true"><span /></div>
@@ -76,9 +80,10 @@ export default function Home() {
         </ObservatoryChapter>
 
         <ObservatoryChapter
+          id="writing"
           index="03"
           kicker="Thinking in Public"
-          title={<>Ideas deserve a <span>clearer</span> interface.</>}
+          title={<>Thinking in <span>public.</span></>}
         >
           <div className="chapter-grid mt-14 lg:mt-20">
             <p className="chapter-lead">
@@ -97,7 +102,7 @@ export default function Home() {
           </div>
         </ObservatoryChapter>
 
-        <footer className="observatory-footer">
+        <footer className="observatory-footer" id="contact">
           <div><p>Beyond the surface</p><h2>Let&apos;s stay in touch.</h2></div>
           <div className="footer-links">
             <a href="https://github.com/Asesino-K" rel="noreferrer" target="_blank">GitHub</a>
