@@ -6,9 +6,9 @@ import { motion, useReducedMotion } from "framer-motion";
 type ActivePage = "research" | "projects" | "writing" | "cv";
 
 const links: Array<{ href: string; label: string; page: ActivePage }> = [
-  { href: "/research", label: "Research", page: "research" },
-  { href: "/projects", label: "Projects", page: "projects" },
-  { href: "/writing", label: "Writing", page: "writing" },
+  { href: "/#language", label: "Language", page: "research" },
+  { href: "/#intelligence", label: "Intelligence", page: "projects" },
+  { href: "/#creation", label: "Creation", page: "writing" },
   { href: "/cv", label: "CV", page: "cv" },
 ];
 
