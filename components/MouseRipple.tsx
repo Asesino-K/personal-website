@@ -103,7 +103,7 @@ export default function MouseRipple() {
             ripple.y,
             18 + progress * 14,
           );
-          glow.addColorStop(0, `rgba(226, 237, 246, ${coreFade * 0.12})`);
+          glow.addColorStop(0, `rgba(226, 237, 246, ${coreFade * 0.18})`);
           glow.addColorStop(1, "rgba(162, 194, 219, 0)");
           context.beginPath();
           context.arc(ripple.x, ripple.y, 18 + progress * 14, 0, Math.PI * 2);
@@ -111,7 +111,7 @@ export default function MouseRipple() {
           context.fill();
           context.beginPath();
           context.arc(ripple.x, ripple.y, 1.4 + progress * 2.6, 0, Math.PI * 2);
-          context.fillStyle = `rgba(229, 238, 247, ${coreFade * 0.16})`;
+          context.fillStyle = `rgba(229, 238, 247, ${coreFade * 0.22})`;
           context.fill();
         }
 
@@ -124,7 +124,7 @@ export default function MouseRipple() {
           }
 
           const radius = ripple.maxRadius * layerProgress;
-          const alpha = fade * (0.1 - layer * 0.014);
+          const alpha = fade * (0.16 - layer * 0.022);
           context.beginPath();
           context.arc(ripple.x, ripple.y, radius, 0, Math.PI * 2);
           const color = layer % 2 === 0 ? "213, 225, 236" : "174, 205, 228";

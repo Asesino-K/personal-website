@@ -22,10 +22,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(88rem 58rem at 50% -26rem, rgba(57, 93, 124, 0.2), transparent 63%),
-    radial-gradient(52rem 42rem at 104% 18%, rgba(94, 22, 40, 0.09), transparent 72%),
-    radial-gradient(40rem 34rem at -8% 72%, rgba(27, 73, 101, 0.13), transparent 70%),
-    radial-gradient(rgba(214, 229, 239, 0.028) 0.55px, transparent 0.7px),
+    radial-gradient(88rem 58rem at 50% -26rem, rgba(57, 93, 124, 0.32), transparent 63%),
+    radial-gradient(52rem 42rem at 104% 18%, rgba(94, 22, 40, 0.15), transparent 72%),
+    radial-gradient(40rem 34rem at -8% 72%, rgba(27, 73, 101, 0.2), transparent 70%),
+    radial-gradient(rgba(214, 229, 239, 0.04) 0.55px, transparent 0.7px),
     var(--background);
   background-size: auto, auto, auto, 5px 5px, auto;
   color: var(--foreground);
@@ -39,7 +39,7 @@ body::after {
   border-radius: 9999px;
   content: "";
   filter: blur(70px);
-  opacity: 0.34;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -48,7 +48,7 @@ body::before {
   left: -14rem;
   width: 34rem;
   height: 34rem;
-  background: radial-gradient(circle, rgba(27, 73, 101, 0.28), transparent 68%);
+  background: radial-gradient(circle, rgba(47, 105, 141, 0.38), transparent 68%);
   animation: ambient-drift 27s ease-in-out infinite alternate;
 }
 
@@ -57,7 +57,7 @@ body::after {
   bottom: 10vh;
   width: 38rem;
   height: 38rem;
-  background: radial-gradient(circle, rgba(94, 22, 40, 0.2), transparent 68%);
+  background: radial-gradient(circle, rgba(122, 36, 56, 0.3), transparent 68%);
   animation: ambient-drift 23s ease-in-out infinite alternate-reverse;
 }
 
@@ -79,7 +79,7 @@ body::after {
   width: min(70rem, 130vw);
   height: min(34rem, 62vw);
   transform: translateX(-50%);
-  background: radial-gradient(ellipse, rgba(142, 184, 212, 0.14), rgba(18, 48, 74, 0.09) 43%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(168, 205, 228, 0.22), rgba(27, 73, 101, 0.16) 43%, transparent 70%);
 }
 
 .hero-orb-two {
@@ -87,7 +87,7 @@ body::after {
   bottom: 2rem;
   width: 28rem;
   height: 28rem;
-  background: radial-gradient(circle, rgba(122, 36, 56, 0.08), transparent 68%);
+  background: radial-gradient(circle, rgba(122, 36, 56, 0.14), transparent 68%);
 }
 
 .cursor-glow {
@@ -98,7 +98,7 @@ body::after {
   width: min(34rem, 72vw);
   aspect-ratio: 1;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(142, 187, 218, 0.1), rgba(174, 190, 218, 0.04) 32%, rgba(94, 22, 40, 0.025) 52%, transparent 70%);
+  background: radial-gradient(circle, rgba(142, 187, 218, 0.16), rgba(174, 190, 218, 0.065) 32%, rgba(94, 22, 40, 0.04) 52%, transparent 70%);
   filter: blur(26px);
   opacity: 0;
   pointer-events: none;
@@ -124,9 +124,9 @@ body::after {
 }
 
 .surface-card {
-  border: 1px solid rgba(191, 209, 221, 0.14);
-  background: linear-gradient(145deg, rgba(27, 73, 101, 0.19), rgba(8, 19, 31, 0.43) 48%, rgba(94, 22, 40, 0.08));
-  box-shadow: inset 0 1px 0 rgba(233, 241, 247, 0.04);
+  border: 1px solid rgba(191, 209, 221, 0.2);
+  background: linear-gradient(145deg, rgba(27, 73, 101, 0.27), rgba(8, 19, 31, 0.58) 48%, rgba(94, 22, 40, 0.12));
+  box-shadow: inset 0 1px 0 rgba(233, 241, 247, 0.08), 0 22px 72px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(22px);
 }
 
@@ -145,8 +145,8 @@ body::after {
   z-index: 0;
   top: 14%;
   right: max(2%, calc((100vw - 78rem) / 2));
-  width: min(28rem, 42vw);
-  opacity: 0.5;
+  width: min(32rem, 46vw);
+  opacity: 0.78;
   pointer-events: none;
   transform-origin: center;
   animation: prism-drift 22s ease-in-out infinite alternate;

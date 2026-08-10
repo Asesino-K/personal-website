@@ -32,8 +32,8 @@ export default function ParticleField() {
     const createParticles = () => {
       const count = Math.min(42, Math.max(20, Math.round((window.innerWidth * window.innerHeight) / 46000)));
       particles = Array.from({ length: count }, () => ({
-        opacity: 0.025 + Math.random() * 0.055,
-        size: 0.65 + Math.random() * 1.35,
+        opacity: 0.045 + Math.random() * 0.075,
+        size: 0.8 + Math.random() * 1.5,
         velocityX: (Math.random() - 0.5) * 0.07,
         velocityY: -0.025 - Math.random() * 0.07,
         x: Math.random() * window.innerWidth,
