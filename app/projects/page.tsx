@@ -1,116 +1,86 @@
+import Reveal, { Stagger, StaggerItem } from "@/components/Reveal";
 import SiteNav from "@/components/SiteNav";
 
-const tagClassName =
-  "rounded-full border border-zinc-700/80 px-3 py-1 text-xs text-zinc-400";
+const projects = [
+  {
+    category: "Web Development",
+    title: "Personal Portfolio Website",
+    description:
+      "A personal academic portfolio website built with Next.js, TypeScript, Tailwind CSS, and Cloudflare Workers.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare Workers"],
+  },
+  {
+    category: "Planned Project",
+    title: "AI Research Brief",
+    description:
+      "A planned project exploring AI-assisted information filtering, research updates summarization, and knowledge organization.",
+    tags: ["AI", "Knowledge Organization"],
+  },
+  {
+    category: "Technology Exploration",
+    title: "AI and Language Technology Exploration",
+    description:
+      "Personal exploration of artificial intelligence, large language models, and natural language processing technologies.",
+    tags: ["Python", "PyTorch", "Transformers"],
+  },
+  {
+    category: "Technology Exploration",
+    title: "Computational Creativity Exploration",
+    description:
+      "Exploring computational approaches for creative applications and intelligent systems.",
+    tags: ["Python", "Machine Learning"],
+  },
+];
 
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-transparent text-zinc-100">
       <SiteNav active="projects" />
 
-      <section className="page-enter mx-auto w-full max-w-6xl px-6 py-20 sm:px-10 sm:py-28 lg:px-16">
-        <p className="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">
-          Selected Work
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-6xl">
-          Projects
-        </h1>
-        <p className="mt-6 max-w-2xl leading-7 text-zinc-400">
-          A selection of personal work and public areas of exploration.
-        </p>
+      <div className="mx-auto w-full max-w-6xl px-6 pb-28 pt-36 sm:px-10 sm:pb-40 sm:pt-44 lg:px-16">
+        <Reveal>
+          <p className="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">
+            Selected Work
+          </p>
+          <h1 className="mt-6 max-w-4xl text-5xl font-medium tracking-[-0.06em] text-zinc-50 sm:text-7xl lg:text-8xl">
+            Work in progress. Ideas in motion.
+          </h1>
+          <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-400">
+            A considered collection of personal work and public areas of exploration.
+          </p>
+        </Reveal>
 
-        <div className="mt-16 grid gap-5 lg:grid-cols-2">
-          <article className="project-card rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7 sm:p-9">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
-              Web Development
-            </p>
-            <h2 className="mt-4 text-2xl font-semibold tracking-tight">
-              Personal Portfolio Website
-            </h2>
-            <p className="mt-5 leading-7 text-zinc-400">
-              A personal academic portfolio website built with Next.js,
-              TypeScript, Tailwind CSS, and Cloudflare Workers.
-            </p>
-            <div className="mt-8 border-t border-zinc-800 pt-6 text-sm leading-7 text-zinc-500">
-              <p className="mb-3 font-medium uppercase tracking-[0.18em] text-zinc-600">
-                Focus
-              </p>
-              <p>Modern web development</p>
-              <p>Serverless deployment</p>
-              <p>Personal knowledge management</p>
-            </div>
-            <ul className="mt-6 flex flex-wrap gap-2" aria-label="Technology tags">
-              {["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare Workers"].map(
-                (tag) => (
-                  <li className={tagClassName} key={tag}>
-                    {tag}
-                  </li>
-                ),
-              )}
-            </ul>
-          </article>
-
-          <article className="project-card rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7 sm:p-9">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
-              Planned Project
-            </p>
-            <h2 className="mt-4 text-2xl font-semibold tracking-tight">
-              AI Research Brief
-            </h2>
-            <p className="mt-5 max-w-xl leading-7 text-zinc-400">
-              A planned project exploring AI-assisted information filtering,
-              research updates summarization, and knowledge organization.
-            </p>
-            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Technology tags">
-              {["AI", "Knowledge Organization"].map((tag) => (
-                <li className={tagClassName} key={tag}>
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </article>
-
-          <article className="project-card rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7 sm:p-9">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
-              Technology Exploration
-            </p>
-            <h2 className="mt-4 text-2xl font-semibold tracking-tight">
-              AI and Language Technology Exploration
-            </h2>
-            <p className="mt-5 max-w-xl leading-7 text-zinc-400">
-              Personal exploration of artificial intelligence, large language
-              models, and natural language processing technologies.
-            </p>
-            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Technology tags">
-              {["Python", "PyTorch", "Transformers"].map((tag) => (
-                <li className={tagClassName} key={tag}>
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </article>
-
-          <article className="project-card rounded-2xl border border-zinc-800 bg-zinc-900/40 p-7 sm:p-9">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
-              Technology Exploration
-            </p>
-            <h2 className="mt-4 text-2xl font-semibold tracking-tight">
-              Computational Creativity Exploration
-            </h2>
-            <p className="mt-5 max-w-xl leading-7 text-zinc-400">
-              Exploring computational approaches for creative applications and
-              intelligent systems.
-            </p>
-            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Technology tags">
-              {["Python", "Machine Learning"].map((tag) => (
-                <li className={tagClassName} key={tag}>
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </article>
-        </div>
-      </section>
+        <Stagger className="mt-24 grid gap-5 lg:grid-cols-2">
+          {projects.map((project, index) => (
+            <StaggerItem key={project.title}>
+              <article className="project-card surface-card flex min-h-80 flex-col rounded-3xl p-8 sm:p-10">
+                <div className="flex items-start justify-between gap-6">
+                  <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-500">
+                    {project.category}
+                  </p>
+                  <span className="text-xs text-zinc-600">0{index + 1}</span>
+                </div>
+                <h2 className="mt-auto pt-16 text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">
+                  {project.title}
+                </h2>
+                <p className="mt-5 max-w-xl leading-7 text-zinc-400">
+                  {project.description}
+                </p>
+                <ul className="mt-8 flex flex-wrap gap-2" aria-label="Technology tags">
+                  {project.tags.map((tag) => (
+                    <li
+                      className="rounded-full border border-white/[0.12] px-3 py-1.5 text-xs text-zinc-400"
+                      key={tag}
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </div>
     </main>
   );
 }

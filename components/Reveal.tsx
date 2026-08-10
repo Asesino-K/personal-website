@@ -1,49 +1,70 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  motion,
+  useReducedMotion,
+  type Variants,
+} from "framer-motion";
+import type { ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
+  delay?: number;
 };
 
-export default function Reveal({ children, className }: RevealProps) {
-  const elementRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+const revealVariants: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0 },
+};
 
-  useEffect(() => {
-    const element = elementRef.current;
-
-    if (!element) {
-      return;
-    }
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -10%", threshold: 0.12 },
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
+export default function Reveal({ children, className, delay = 0 }: RevealProps) {
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div
-      className={`${isVisible ? "reveal-visible" : "reveal-hidden"} ${className ?? ""}`}
-      ref={elementRef}
+    <motion.div
+      className={className}
+      initial={shouldReduceMotion ? false : "hidden"}
+      transition={{ duration: 0.72, delay, ease: [0.22, 1, 0.36, 1] }}
+      variants={revealVariants}
+      viewport={{ amount: 0.18, once: true }}
+      whileInView="visible"
     >
       {children}
-    </div>
+    </motion.div>
+  );
+}
+
+export function Stagger({ children, className }: Omit<RevealProps, "delay">) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className={className}
+      initial={shouldReduceMotion ? false : "hidden"}
+      transition={{ staggerChildren: shouldReduceMotion ? 0 : 0.1 }}
+      variants={{
+        hidden: {},
+        visible: {},
+      }}
+      viewport={{ amount: 0.12, once: true }}
+      whileInView="visible"
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function StaggerItem({ children, className }: Omit<RevealProps, "delay">) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className={className}
+      transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+      variants={shouldReduceMotion ? undefined : revealVariants}
+    >
+      {children}
+    </motion.div>
   );
 }

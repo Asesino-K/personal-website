@@ -1,3 +1,4 @@
+import Reveal, { Stagger, StaggerItem } from "@/components/Reveal";
 import SiteNav from "@/components/SiteNav";
 
 const technicalSkills = [
@@ -14,67 +15,80 @@ export default function CvPage() {
     <main className="min-h-screen bg-transparent text-zinc-100">
       <SiteNav active="cv" />
 
-      <section className="page-enter mx-auto w-full max-w-6xl px-6 py-20 sm:px-10 sm:py-28 lg:px-16">
-        <div className="flex flex-wrap items-end justify-between gap-8">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">
-              Curriculum Vitae
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-6xl">
-              Curriculum Vitae
-            </h1>
-          </div>
-          <a
-            className="button-secondary rounded-full border border-zinc-700 bg-zinc-900/30 px-5 py-2.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:bg-zinc-900/80 hover:text-white"
-            href="/cv.pdf"
-          >
-            Download CV
-          </a>
-        </div>
-
-        <div className="mt-16 divide-y divide-zinc-800 rounded-2xl border border-zinc-800 bg-zinc-900/35 px-7 sm:px-10">
-          <section className="grid gap-5 py-9 md:grid-cols-[220px_1fr]">
-            <h2 className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-500">
-              Education
-            </h2>
+      <div className="mx-auto w-full max-w-6xl px-6 pb-28 pt-36 sm:px-10 sm:pb-40 sm:pt-44 lg:px-16">
+        <Reveal>
+          <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
             <div>
-              <h3 className="text-xl font-medium tracking-tight">
-                Zhejiang Sci-Tech University
-              </h3>
-              <p className="mt-2 leading-7 text-zinc-400">
-                Bachelor of Computer Science and Technology
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">
+                Curriculum Vitae
               </p>
+              <h1 className="mt-6 text-5xl font-medium tracking-[-0.06em] text-zinc-50 sm:text-7xl">
+                A concise profile.
+              </h1>
             </div>
-          </section>
+            <a
+              className="rounded-full border border-white/[0.14] bg-white/[0.05] px-5 py-3 text-sm font-medium text-zinc-200 transition-colors hover:bg-white/[0.11] hover:text-white"
+              href="/cv.pdf"
+            >
+              Download CV
+            </a>
+          </div>
+        </Reveal>
 
-          <section className="grid gap-5 py-9 md:grid-cols-[220px_1fr]">
-            <h2 className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-500">
-              Research Interests
-            </h2>
-            <ul className="space-y-2 text-zinc-300">
-              <li>NLP</li>
-              <li>LLM</li>
-              <li>Human-Centered AI</li>
-            </ul>
-          </section>
+        <Stagger className="mt-24 space-y-4">
+          <StaggerItem>
+            <section className="surface-card grid gap-7 rounded-3xl p-8 sm:grid-cols-[0.65fr_1.35fr] sm:p-10">
+              <p className="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+                Education
+              </p>
+              <div>
+                <h2 className="text-3xl font-medium tracking-[-0.04em] text-zinc-100">
+                  Zhejiang Sci-Tech University
+                </h2>
+                <p className="mt-3 text-lg text-zinc-400">
+                  Bachelor of Computer Science and Technology
+                </p>
+              </div>
+            </section>
+          </StaggerItem>
 
-          <section className="grid gap-5 py-9 md:grid-cols-[220px_1fr]">
-            <h2 className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-500">
-              Technical Skills
-            </h2>
-            <ul className="flex flex-wrap gap-3">
-              {technicalSkills.map((skill) => (
-                <li
-                  className="rounded-full border border-zinc-700/80 px-4 py-2 text-sm text-zinc-300"
-                  key={skill}
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </section>
-        </div>
-      </section>
+          <StaggerItem>
+            <section className="surface-card grid gap-7 rounded-3xl p-8 sm:grid-cols-[0.65fr_1.35fr] sm:p-10">
+              <p className="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+                Research Interests
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {["NLP", "LLM", "Human-Centered AI"].map((interest) => (
+                  <span
+                    className="rounded-full border border-white/[0.12] px-4 py-2 text-sm text-zinc-300"
+                    key={interest}
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
+            </section>
+          </StaggerItem>
+
+          <StaggerItem>
+            <section className="surface-card grid gap-7 rounded-3xl p-8 sm:grid-cols-[0.65fr_1.35fr] sm:p-10">
+              <p className="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+                Technical Skills
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {technicalSkills.map((skill) => (
+                  <span
+                    className="rounded-full border border-white/[0.12] px-4 py-2 text-sm text-zinc-300"
+                    key={skill}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </section>
+          </StaggerItem>
+        </Stagger>
+      </div>
     </main>
   );
 }

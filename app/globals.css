@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #09090b;
-  --foreground: #f4f4f5;
+  --background: #060607;
+  --foreground: #f5f5f7;
 }
 
 @theme inline {
@@ -12,27 +12,20 @@
   --font-mono: var(--font-geist-mono);
 }
 
-body {
-  min-height: 100vh;
+html {
   background: var(--background);
-  background-image:
-    radial-gradient(900px 520px at 50% -180px, rgba(161, 161, 170, 0.11), transparent 68%),
-    radial-gradient(620px 420px at 8% 12%, rgba(63, 63, 70, 0.14), transparent 72%);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
 
-body::before {
-  position: fixed;
-  z-index: -1;
-  top: -16rem;
-  left: 50%;
-  width: min(60rem, 100vw);
-  height: 34rem;
-  content: "";
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse, rgba(244, 244, 245, 0.045), transparent 68%);
-  pointer-events: none;
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(90rem 52rem at 50% -20rem, rgba(161, 161, 170, 0.14), transparent 64%),
+    radial-gradient(46rem 38rem at 100% 22%, rgba(39, 39, 42, 0.2), transparent 72%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 ::selection {
@@ -40,93 +33,57 @@ body::before {
   color: #fff;
 }
 
-.page-enter {
-  animation: page-enter 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(2px);
+  pointer-events: none;
 }
 
-.hero-eyebrow {
-  animation: hero-enter 520ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
+.hero-orb-one {
+  top: 8%;
+  left: 50%;
+  width: min(70rem, 130vw);
+  height: min(34rem, 62vw);
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(212, 212, 216, 0.12), rgba(63, 63, 70, 0.045) 43%, transparent 70%);
 }
 
-.hero-name {
-  animation: hero-enter 700ms 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+.hero-orb-two {
+  right: -12rem;
+  bottom: 2rem;
+  width: 28rem;
+  height: 28rem;
+  background: radial-gradient(circle, rgba(113, 113, 122, 0.1), transparent 68%);
 }
 
-.hero-description {
-  animation: hero-enter 620ms 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.hero-actions {
-  animation: hero-enter 540ms 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.reveal-hidden {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.reveal-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1), transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+.surface-card {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(145deg, rgba(39, 39, 42, 0.55), rgba(24, 24, 27, 0.28));
+  backdrop-filter: blur(18px);
 }
 
 .project-card {
-  transition: transform 240ms ease, border-color 240ms ease, background-color 240ms ease;
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), background-color 360ms ease, border-color 360ms ease;
 }
 
 .project-card:hover {
-  border-color: rgb(82 82 91);
-  background-color: rgba(39, 39, 42, 0.58);
-  transform: translateY(-4px);
-}
-
-.button-primary,
-.button-secondary {
-  transition: transform 220ms ease, background-color 220ms ease, border-color 220ms ease, color 220ms ease;
-}
-
-.button-primary:hover,
-.button-secondary:hover {
-  transform: translateY(-1px);
-}
-
-@keyframes page-enter {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes hero-enter {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  border-color: rgba(255, 255, 255, 0.19);
+  background-color: rgba(39, 39, 42, 0.62);
+  transform: translateY(-6px);
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .reveal-hidden {
-    opacity: 1;
-    transform: none;
   }
 }
