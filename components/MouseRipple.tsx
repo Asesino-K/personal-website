@@ -9,8 +9,8 @@ type Ripple = {
   y: number;
 };
 
-const RIPPLE_DURATION = 1700;
-const MAX_RIPPLES = 18;
+const RIPPLE_DURATION = 3600;
+const MAX_RIPPLES = 14;
 
 export default function MouseRipple() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -50,14 +50,14 @@ export default function MouseRipple() {
         event.clientY - lastPointer.y,
       );
 
-      if (distance < 22 && now - lastPointer.time < 90) {
+      if (distance < 24 && now - lastPointer.time < 100) {
         return;
       }
 
       lastPointer = { x: event.clientX, y: event.clientY, time: now };
       ripples.push({
         age: 0,
-        maxRadius: 72 + Math.min(distance, 80),
+        maxRadius: 220 + Math.min(distance, 80),
         x: event.clientX,
         y: event.clientY,
       });
@@ -93,19 +93,28 @@ export default function MouseRipple() {
         const progress = ripple.age / RIPPLE_DURATION;
         const fade = (1 - progress) ** 2;
 
-        for (let layer = 0; layer < 3; layer += 1) {
-          const layerProgress = Math.max(0, progress - layer * 0.1) / (1 - layer * 0.1);
+        const coreFade = Math.max(0, 1 - progress * 5);
+        if (coreFade > 0) {
+          context.beginPath();
+          context.arc(ripple.x, ripple.y, 1.5 + progress * 3, 0, Math.PI * 2);
+          context.fillStyle = `rgba(220, 232, 246, ${coreFade * 0.13})`;
+          context.fill();
+        }
+
+        for (let layer = 0; layer < 4; layer += 1) {
+          const delay = layer * 0.1;
+          const layerProgress = Math.max(0, progress - delay) / (1 - delay);
 
           if (layerProgress <= 0) {
             continue;
           }
 
           const radius = ripple.maxRadius * layerProgress;
-          const alpha = fade * (layer === 0 ? 0.13 : 0.07);
+          const alpha = fade * (0.105 - layer * 0.016);
           context.beginPath();
           context.arc(ripple.x, ripple.y, radius, 0, Math.PI * 2);
-          context.strokeStyle = `rgba(210, 226, 242, ${alpha})`;
-          context.lineWidth = 0.75 + (1 - layerProgress) * 0.35;
+          context.strokeStyle = `rgba(205, 224, 244, ${alpha})`;
+          context.lineWidth = 0.55 + (1 - layerProgress) * 0.3;
           context.stroke();
         }
       }

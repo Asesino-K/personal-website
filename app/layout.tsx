@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import CursorGlow from "@/components/CursorGlow";
 import MouseRipple from "@/components/MouseRipple";
 import "./globals.css";
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <MouseRipple />
+        <CursorGlow />
         <div className="relative z-10 flex min-h-full flex-1 flex-col">{children}</div>
       </body>
     </html>

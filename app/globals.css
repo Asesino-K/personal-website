@@ -18,14 +18,44 @@ html {
 }
 
 body {
+  isolation: isolate;
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(90rem 52rem at 50% -20rem, rgba(161, 161, 170, 0.14), transparent 64%),
-    radial-gradient(46rem 38rem at 100% 22%, rgba(39, 39, 42, 0.2), transparent 72%),
+    radial-gradient(90rem 52rem at 50% -20rem, rgba(165, 178, 206, 0.15), transparent 64%),
+    radial-gradient(46rem 38rem at 100% 22%, rgba(79, 72, 102, 0.16), transparent 72%),
     var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+body::before,
+body::after {
+  position: fixed;
+  z-index: 0;
+  border-radius: 9999px;
+  content: "";
+  filter: blur(70px);
+  opacity: 0.34;
+  pointer-events: none;
+}
+
+body::before {
+  top: 14vh;
+  left: -14rem;
+  width: 34rem;
+  height: 34rem;
+  background: radial-gradient(circle, rgba(112, 130, 167, 0.22), transparent 68%);
+  animation: ambient-drift 24s ease-in-out infinite alternate;
+}
+
+body::after {
+  right: -16rem;
+  bottom: 10vh;
+  width: 38rem;
+  height: 38rem;
+  background: radial-gradient(circle, rgba(112, 91, 150, 0.17), transparent 68%);
+  animation: ambient-drift 29s ease-in-out infinite alternate-reverse;
 }
 
 ::selection {
@@ -57,6 +87,49 @@ body {
   background: radial-gradient(circle, rgba(113, 113, 122, 0.1), transparent 68%);
 }
 
+.cursor-glow {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: min(34rem, 72vw);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(156, 170, 214, 0.095), rgba(113, 98, 160, 0.042) 34%, transparent 68%);
+  filter: blur(18px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 900ms ease;
+  will-change: transform;
+}
+
+.float-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  background: rgba(24, 24, 27, 0.4);
+  padding: 0.55rem 0.8rem;
+  color: rgba(228, 228, 231, 0.82);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(16px);
+  pointer-events: none;
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(0.96);
+  }
+
+  to {
+    transform: translate3d(7%, 6%, 0) scale(1.08);
+  }
+}
+
 .surface-card {
   border: 1px solid rgba(255, 255, 255, 0.09);
   background: linear-gradient(145deg, rgba(39, 39, 42, 0.55), rgba(24, 24, 27, 0.28));
@@ -85,5 +158,10 @@ body {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  body::before,
+  body::after {
+    display: none;
   }
 }

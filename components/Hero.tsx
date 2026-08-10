@@ -15,6 +15,25 @@ export default function Hero() {
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-6 pb-16 pt-32 sm:px-10 lg:px-16">
       <div aria-hidden="true" className="hero-orb hero-orb-one" />
       <div aria-hidden="true" className="hero-orb hero-orb-two" />
+      {[
+        { className: "left-[9%] top-[30%]", label: "NLP", duration: 5.5 },
+        { className: "right-[10%] top-[25%]", label: "LLM", duration: 6.2 },
+        { className: "bottom-[23%] left-[15%]", label: "AI Systems", duration: 5.8 },
+        {
+          className: "bottom-[27%] right-[13%]",
+          label: "Human-Centered AI",
+          duration: 6.5,
+        },
+      ].map((badge) => (
+        <motion.div
+          animate={shouldReduceMotion ? undefined : { y: [0, -10, 0] }}
+          className={`float-badge hidden lg:flex ${badge.className}`}
+          key={badge.label}
+          transition={{ duration: badge.duration, ease: "easeInOut", repeat: Infinity }}
+        >
+          {badge.label}
+        </motion.div>
+      ))}
 
       <motion.div
         className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center"
@@ -56,7 +75,7 @@ export default function Hero() {
           <motion.a
             className="rounded-full bg-zinc-100 px-5 py-3 text-sm font-medium text-zinc-950"
             href="#research"
-            whileHover={shouldReduceMotion ? undefined : { y: -2 }}
+            whileHover={shouldReduceMotion ? undefined : { y: -2, backgroundColor: "#ffffff" }}
             whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
           >
             View Research
@@ -64,7 +83,15 @@ export default function Hero() {
           <motion.a
             className="rounded-full border border-white/15 bg-white/[0.045] px-5 py-3 text-sm font-medium text-zinc-200 backdrop-blur-sm"
             href="#projects"
-            whileHover={shouldReduceMotion ? undefined : { y: -2, backgroundColor: "rgba(255,255,255,0.10)" }}
+            whileHover={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    y: -2,
+                    backgroundColor: "rgba(255,255,255,0.10)",
+                    borderColor: "rgba(255,255,255,0.28)",
+                  }
+            }
             whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
           >
             View Projects
