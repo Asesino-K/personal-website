@@ -2,12 +2,15 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 const interests = ["Natural Language Processing", "Large Language Models", "Human-Centered AI", "Language and Cultural Understanding"];
 
 export default function ProductExperience() {
   const root = useRef<HTMLElement>(null);
+  const [eyeFailed, setEyeFailed] = useState(false);
+  const [languageFailed, setLanguageFailed] = useState(false);
+  const [intelligenceFailed, setIntelligenceFailed] = useState(false);
 
   useLayoutEffect(() => {
     const element = root.current;
@@ -37,18 +40,27 @@ export default function ProductExperience() {
   return (
     <main className="product-experience" ref={root}>
       <section className="product-hero">
-        <div className="eye-object" aria-hidden="true"><div className="eye-rim" /><div className="eye-iris"><i /></div><div className="eye-glint" /></div>
+        <div className={`eye-object ${eyeFailed ? "asset-fallback" : ""}`} aria-hidden="true">
+          {!eyeFailed && <img alt="" onError={() => setEyeFailed(true)} src="/images/hero-eye.png" />}
+          <div className="eye-rim" /><div className="eye-iris"><i /></div><div className="eye-glint" />
+        </div>
         <div className="hero-headline"><p>LUMEN CHEN</p><h1>Building intelligence<br />that understands<br />language and humans.</h1><span>AI · LANGUAGE · HUMAN</span></div>
         <div className="scroll-cue">SCROLL TO EXPLORE <i>↓</i></div>
       </section>
 
       <section className="product-scene language-scene" data-scene id="language">
-        <div className="scene-wave" data-scene-visual aria-hidden="true"><span /><span /><span /></div>
+        <div className={`scene-wave ${languageFailed ? "asset-fallback" : ""}`} data-scene-visual aria-hidden="true">
+          {!languageFailed && <img alt="" onError={() => setLanguageFailed(true)} src="/images/language.png" />}
+          <span /><span /><span />
+        </div>
         <div className="scene-copy" data-scene-copy><p className="scene-label">01 / LANGUAGE</p><h2>LANGUAGE</h2><p className="scene-statement">Meaning.<br />Context.<br />Human experience.</p><div className="interest-line">{interests.map((interest) => <span key={interest}>{interest}</span>)}</div></div>
       </section>
 
       <section className="product-scene intelligence-scene" data-scene id="intelligence">
-        <div className="intelligence-visual" data-scene-visual aria-hidden="true"><div /><div /><div /></div>
+        <div className={`intelligence-visual ${intelligenceFailed ? "asset-fallback" : ""}`} data-scene-visual aria-hidden="true">
+          {!intelligenceFailed && <img alt="" onError={() => setIntelligenceFailed(true)} src="/images/intelligence.png" />}
+          <div /><div /><div />
+        </div>
         <div className="scene-copy intelligence-copy" data-scene-copy><p className="scene-label">02 / INTELLIGENCE</p><h2>INTELLIGENCE</h2><p className="scene-statement">Systems that listen<br />before they respond.</p><div className="glass-spec"><span>AI Systems</span><span>Machine Learning</span><span>Human-Centered AI</span></div><a href="/projects">Explore projects <i>↗</i></a></div>
       </section>
 
