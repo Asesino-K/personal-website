@@ -37,14 +37,14 @@ export default function Home() {
               About
             </p>
 
-            <h2 className="text-2xl font-medium">
-              Building toward research.
-            </h2>
+            <p className="mt-4 max-w-xl leading-7 text-zinc-400">
+              I am a Computer Science undergraduate interested in natural
+              language processing, large language models, and human-centered AI.
+            </p>
 
             <p className="mt-4 max-w-xl leading-7 text-zinc-400">
-              I work on problems involving language, cultural context, model
-              reasoning, and practical AI systems. This site documents my
-              research, projects, and technical work.
+              My interests focus on building intelligent systems that better
+              understand language, context, and human interaction.
             </p>
           </section>
 
@@ -53,14 +53,54 @@ export default function Home() {
               Research
             </p>
 
-            <h2 className="text-2xl font-medium">
-              Chinese Meme Understanding
-            </h2>
+            <h2 className="text-2xl font-medium">Research Interests</h2>
 
             <p className="mt-4 max-w-xl leading-7 text-zinc-400">
-              Current work explores cultural-pragmatic reasoning, structured
-              supervision, and interpretable modeling for Chinese internet memes.
+              Natural Language Processing, Large Language Models, Human-Centered
+              AI, Language and Cultural Understanding.
             </p>
+
+            <p className="mt-4 max-w-xl leading-7 text-zinc-400">
+              As an undergraduate, I am exploring how intelligent systems can
+              support meaningful and accessible human experiences with technology.
+            </p>
+          </section>
+        </div>
+
+        <div className="mt-20 grid gap-14 border-t border-zinc-800 pt-12 md:grid-cols-2">
+          <section id="education">
+            <p className="mb-3 text-sm uppercase tracking-[0.22em] text-zinc-500">
+              Education
+            </p>
+
+            <h2 className="text-2xl font-medium">
+              Zhejiang Sci-Tech University
+            </h2>
+
+            <p className="mt-4 leading-7 text-zinc-400">
+              Bachelor of Computer Science and Technology
+            </p>
+          </section>
+
+          <section id="skills">
+            <p className="mb-3 text-sm uppercase tracking-[0.22em] text-zinc-500">
+              Skills
+            </p>
+
+            <div className="space-y-3 leading-7 text-zinc-400">
+              <p>
+                <span className="font-medium text-zinc-200">Programming:</span>{" "}
+                Python, C++, TypeScript
+              </p>
+              <p>
+                <span className="font-medium text-zinc-200">AI:</span> PyTorch,
+                Transformers, Large Language Models
+              </p>
+              <p>
+                <span className="font-medium text-zinc-200">Web:</span> Next.js,
+                React, Cloudflare
+              </p>
+            </div>
           </section>
         </div>
 
@@ -75,23 +115,13 @@ export default function Home() {
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             <article className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
               <h3 className="text-xl font-medium">
-                H-CRAL
-              </h3>
-
-              <p className="mt-3 leading-7 text-zinc-400">
-                Research pipeline for structured Chinese meme understanding and
-                pragmatic reasoning.
-              </p>
-            </article>
-
-            <article className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
-              <h3 className="text-xl font-medium">
                 AI Research Brief
               </h3>
 
               <p className="mt-3 leading-7 text-zinc-400">
-                A planned information product for filtering AI and computer
-                science research updates into concise, useful briefings.
+                A planned personal project focused on AI and computer science
+                information filtering, research updates summarization, and
+                knowledge organization.
               </p>
             </article>
           </div>
@@ -102,9 +132,28 @@ export default function Home() {
             Contact
           </p>
 
-          <p className="text-zinc-400">
-            GitHub, CV, email, and research links will be added here.
-          </p>
+          <div className="flex flex-wrap gap-x-8 gap-y-3 text-zinc-400">
+            <a
+              href="https://github.com/Asesino-K"
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-zinc-100"
+            >
+              GitHub
+            </a>
+            <a
+              href="/cv.pdf"
+              className="transition-colors hover:text-zinc-100"
+            >
+              CV
+            </a>
+            <a
+              href="mailto:chenyitong448@gmail.com"
+              className="transition-colors hover:text-zinc-100"
+            >
+              Email
+            </a>
+          </div>
         </section>
       </section>
     </main>
