@@ -36,7 +36,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        <Reveal className="border-t border-white/[0.09] py-24 sm:py-32" delay={0.05}>
+        <Reveal className="blade-divider py-24 sm:py-32" delay={0.05}>
           <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">
@@ -55,7 +55,7 @@ export default function Home() {
             </p>
           </div>
 
-          <Stagger className="mt-14 grid gap-3 sm:grid-cols-2">
+          <Stagger className="mt-14 divide-y divide-white/[0.08] border-y border-white/[0.08]">
             {[
               "Natural Language Processing",
               "Large Language Models",
@@ -63,11 +63,11 @@ export default function Home() {
               "Language and Cultural Understanding",
             ].map((interest, index) => (
               <StaggerItem key={interest}>
-                <article className="surface-card rounded-3xl p-7 sm:p-8">
-                  <p className="text-xs font-medium tracking-[0.2em] text-zinc-500">
+                <article className="group grid gap-5 py-7 sm:grid-cols-[5rem_1fr] sm:items-baseline sm:py-9">
+                  <p className="text-xs font-medium tracking-[0.2em] text-[#7B2338]">
                     0{index + 1}
                   </p>
-                  <h3 className="mt-10 text-2xl font-medium tracking-[-0.03em] text-zinc-100">
+                  <h3 className="text-2xl font-medium tracking-[-0.03em] text-zinc-100 transition-colors group-hover:text-[#C7E8FF]">
                     {interest}
                   </h3>
                 </article>
@@ -76,7 +76,7 @@ export default function Home() {
           </Stagger>
         </Reveal>
 
-        <Reveal className="border-t border-white/[0.09] py-24 sm:py-32">
+        <Reveal className="blade-divider py-24 sm:py-32">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.35fr] lg:gap-20">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">
@@ -110,7 +110,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        <Reveal className="border-t border-white/[0.09] py-24 sm:py-32">
+        <Reveal className="blade-divider py-24 sm:py-32">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">
@@ -170,7 +170,7 @@ export default function Home() {
           </Stagger>
         </Reveal>
 
-        <Reveal className="border-t border-white/[0.09] pt-20 sm:pt-24">
+        <Reveal className="blade-divider pt-20 sm:pt-24">
           <div className="flex flex-col justify-between gap-10 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-zinc-500">

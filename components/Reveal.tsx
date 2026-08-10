@@ -14,8 +14,8 @@ type RevealProps = {
 };
 
 const revealVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { filter: "blur(8px)", opacity: 0, y: 28 },
+  visible: { filter: "blur(0px)", opacity: 1, y: 0 },
 };
 
 export default function Reveal({ children, className, delay = 0 }: RevealProps) {

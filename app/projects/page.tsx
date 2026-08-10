@@ -50,32 +50,24 @@ export default function ProjectsPage() {
           </p>
         </Reveal>
 
-        <Stagger className="mt-24 grid gap-5 lg:grid-cols-2">
+        <Stagger className="mt-24 space-y-6">
           {projects.map((project, index) => (
             <StaggerItem key={project.title}>
-              <article className="project-card surface-card flex min-h-80 flex-col rounded-3xl p-8 sm:p-10">
-                <div className="flex items-start justify-between gap-6">
+              <article className="project-showcase group relative overflow-hidden rounded-[2rem] px-7 py-10 sm:px-12 sm:py-14 lg:min-h-[30rem] lg:px-16 lg:py-16">
+                <div className="relative z-10 flex items-start justify-between gap-6">
                   <p className="text-xs font-medium uppercase tracking-[0.22em] text-zinc-500">
-                    {project.category}
+                    Project · {project.category}
                   </p>
-                  <span className="text-xs text-zinc-600">0{index + 1}</span>
+                  <span className="text-xl font-light text-[#7B2338]">0{index + 1}</span>
                 </div>
-                <h2 className="mt-auto pt-16 text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">
-                  {project.title}
-                </h2>
-                <p className="mt-5 max-w-xl leading-7 text-zinc-400">
-                  {project.description}
-                </p>
-                <ul className="mt-8 flex flex-wrap gap-2" aria-label="Technology tags">
-                  {project.tags.map((tag) => (
-                    <li
-                      className="rounded-full border border-white/[0.12] px-3 py-1.5 text-xs text-zinc-400"
-                      key={tag}
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
+                <div className="relative z-10 mt-20 max-w-3xl lg:mt-28">
+                  <h2 className="text-4xl font-medium tracking-[-0.055em] text-zinc-100 sm:text-6xl lg:text-7xl">{project.title}</h2>
+                  <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">{project.description}</p>
+                  <div className="mt-10 flex flex-wrap items-center gap-3">
+                    {project.tags.map((tag) => <span className="liquid-tag" key={tag}>{tag}</span>)}
+                    <span aria-hidden="true" className="ml-2 text-xl text-[#C7E8FF] transition-transform duration-500 group-hover:translate-x-2">↗</span>
+                  </div>
+                </div>
               </article>
             </StaggerItem>
           ))}

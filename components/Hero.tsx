@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Prism from "@/components/Prism";
-import WhaleAtmosphere from "@/components/WhaleAtmosphere";
+import WhaleSilhouette from "@/components/WhaleSilhouette";
 
 const entrance = {
   hidden: { opacity: 0, y: 22 },
@@ -18,7 +18,7 @@ export default function Hero() {
       <div aria-hidden="true" className="hero-orb hero-orb-one" />
       <div aria-hidden="true" className="hero-orb hero-orb-two" />
       <Prism />
-      <WhaleAtmosphere />
+      <WhaleSilhouette />
       {[
         { className: "left-[9%] top-[30%]", label: "NLP", duration: 5.5 },
         { className: "right-[10%] top-[25%]", label: "LLM", duration: 6.2 },
@@ -51,15 +51,15 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           variants={entrance}
         >
-          Computer Science · NLP · LLM · Human-Centered AI
+          Lumen Chen · Computer Science · NLP · LLM · Human-Centered AI
         </motion.p>
 
         <motion.h1
-          className="mt-8 max-w-5xl text-balance text-6xl font-semibold tracking-[-0.07em] text-zinc-50 sm:mt-10 sm:text-8xl lg:text-[8.5rem]"
+          className="mt-8 max-w-5xl text-balance text-[clamp(3.15rem,8vw,8.5rem)] font-semibold leading-[0.94] tracking-[-0.07em] text-zinc-50 sm:mt-10"
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           variants={entrance}
         >
-          Lumen Chen
+          Building intelligence<br />that understands<br />language and humans.
         </motion.h1>
 
         <motion.p
@@ -67,8 +67,7 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           variants={entrance}
         >
-          Computer Science undergraduate focused on natural language processing,
-          large language models, and human-centered AI.
+          Exploring language, context, and the human side of intelligent systems.
         </motion.p>
 
         <motion.div
@@ -82,7 +81,7 @@ export default function Hero() {
             whileHover={shouldReduceMotion ? undefined : { y: -2, backgroundColor: "#ffffff" }}
             whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
           >
-            View Research
+            Research
           </motion.a>
           <motion.a
             className="rounded-full border border-white/15 bg-white/[0.045] px-5 py-3 text-sm font-medium text-zinc-200 backdrop-blur-sm"
@@ -98,28 +97,13 @@ export default function Hero() {
             }
             whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
           >
-            View Projects
+            Projects
           </motion.a>
         </motion.div>
 
-        <motion.div
-          className="mt-20 grid w-full max-w-3xl grid-cols-1 gap-px overflow-hidden rounded-3xl border border-white/[0.1] bg-white/[0.08] text-left backdrop-blur-xl sm:grid-cols-3"
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          variants={entrance}
-        >
-          {[
-            ["Focus", "Language & Intelligence"],
-            ["Approach", "Human-Centered"],
-            ["Interests", "NLP & LLM"],
-          ].map(([label, value]) => (
-            <div className="bg-zinc-950/50 px-5 py-4" key={label}>
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500">
-                {label}
-              </p>
-              <p className="mt-2 text-sm text-zinc-200">{value}</p>
-            </div>
-          ))}
-        </motion.div>
+        <motion.p className="mt-20 text-[10px] font-medium uppercase tracking-[0.34em] text-zinc-500" transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} variants={entrance}>
+          Deep Ocean · Prism · Intelligence
+        </motion.p>
       </motion.div>
     </section>
   );

@@ -1,4 +1,37 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 export default function Prism() {
+  const prismRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    const prism = prismRef.current;
+    if (!prism || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame: number | null = null;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    const render = () => {
+      currentX += (targetX - currentX) * 0.06;
+      currentY += (targetY - currentY) * 0.06;
+      prism.style.setProperty("--prism-x", `${currentX}px`);
+      prism.style.setProperty("--prism-y", `${currentY}px`);
+      frame = requestAnimationFrame(render);
+    };
+    const onMove = (event: MouseEvent) => {
+      targetX = (event.clientX / innerWidth - 0.5) * 18;
+      targetY = (event.clientY / innerHeight - 0.5) * 14;
+    };
+    addEventListener("mousemove", onMove, { passive: true });
+    frame = requestAnimationFrame(render);
+    return () => {
+      if (frame !== null) cancelAnimationFrame(frame);
+      removeEventListener("mousemove", onMove);
+    };
+  }, []);
+
   return (
     <svg
       aria-hidden="true"
@@ -6,6 +39,7 @@ export default function Prism() {
       fill="none"
       viewBox="0 0 420 420"
       xmlns="http://www.w3.org/2000/svg"
+      ref={prismRef}
     >
       <defs>
         <linearGradient id="prism-face-one" x1="70" x2="322" y1="48" y2="360">
