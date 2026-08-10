@@ -15,6 +15,7 @@ export default function Hero() {
     <section className="cinematic-hero">
       <WhalePresence />
       <PrismObject />
+      <div aria-hidden="true" className="hero-waterline"><span /><span /><span /></div>
       <div className="hero-depth-marker" aria-hidden="true"><span>DEPTH</span><i /><span>0001M</span></div>
       <motion.div className="cinematic-hero-content" animate="visible" initial={initial} transition={{ staggerChildren: 0.12 }}>
         <motion.p className="hero-kicker" transition={{ duration: 0.7, ease }} variants={enter}>
