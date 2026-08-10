@@ -1,6 +1,38 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100">
+      <nav
+        aria-label="Primary navigation"
+        className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-end gap-x-6 gap-y-3 border-b border-zinc-900 px-6 py-6 text-sm text-zinc-400 sm:px-10 lg:px-16"
+      >
+        <Link className="transition-colors hover:text-zinc-100" href="/">
+          Home
+        </Link>
+        <Link
+          className="transition-colors hover:text-zinc-100"
+          href="/research"
+        >
+          Research
+        </Link>
+        <Link
+          className="transition-colors hover:text-zinc-100"
+          href="/projects"
+        >
+          Projects
+        </Link>
+        <Link
+          className="transition-colors hover:text-zinc-100"
+          href="/writing"
+        >
+          Writing
+        </Link>
+        <Link className="transition-colors hover:text-zinc-100" href="/cv">
+          CV
+        </Link>
+      </nav>
+
       <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 py-24 sm:px-10 lg:px-16">
         <p className="mb-5 text-sm font-medium uppercase tracking-[0.3em] text-zinc-500">
           Computer Science · NLP · LLM · Human-Centered AI
