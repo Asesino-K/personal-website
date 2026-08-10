@@ -9,8 +9,7 @@ const links: Array<{ href: string; label: string; page: ActivePage }> = [
   { href: "/research", label: "Research", page: "research" },
   { href: "/projects", label: "Projects", page: "projects" },
   { href: "/writing", label: "Writing", page: "writing" },
-  { href: "/#about", label: "About", page: "cv" },
-  { href: "/#contact", label: "Contact", page: "cv" },
+  { href: "/cv", label: "CV", page: "cv" },
 ];
 
 export default function SiteNav({ active }: { active?: ActivePage }) {

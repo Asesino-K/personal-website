@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import Prism from "@/components/Prism";
-import WhaleSilhouette from "@/components/WhaleSilhouette";
+import PrismObject from "@/components/PrismObject";
+import WhalePresence from "@/components/WhalePresence";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -13,8 +13,8 @@ export default function Hero() {
 
   return (
     <section className="cinematic-hero">
-      <WhaleSilhouette />
-      <Prism />
+      <WhalePresence />
+      <PrismObject />
       <div className="hero-depth-marker" aria-hidden="true"><span>DEPTH</span><i /><span>0001M</span></div>
       <motion.div className="cinematic-hero-content" animate="visible" initial={initial} transition={{ staggerChildren: 0.12 }}>
         <motion.p className="hero-kicker" transition={{ duration: 0.7, ease }} variants={enter}>
@@ -24,7 +24,7 @@ export default function Hero() {
           EXPLORING<br /><span>INTELLIGENCE</span>
         </motion.h1>
         <motion.div className="hero-bottomline" transition={{ duration: 0.8, ease }} variants={enter}>
-          <p>AI Systems<br />Language Understanding<br />Human-Centered Intelligence</p>
+          <p>AI<br />Language<br />Human</p>
           <a href="#chapter-one">Scroll to dive <span>↓</span></a>
         </motion.div>
       </motion.div>

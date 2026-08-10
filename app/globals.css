@@ -26,15 +26,14 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-.cinematic-background { position: fixed; z-index: 0; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(95rem 60rem at 50% -28rem, rgba(11, 41, 66, 0.7), transparent 64%), radial-gradient(55rem 52rem at 104% 72%, rgba(107, 30, 50, 0.14), transparent 72%), #02050b; }
-.cinematic-depth { position: absolute; inset: 0; background: radial-gradient(65rem 44rem at 16% 34%, rgba(7, 27, 51, 0.52), transparent 70%), linear-gradient(115deg, transparent 34%, rgba(200, 209, 220, 0.025) 50%, transparent 66%); }
-.cinematic-ray { position: absolute; top: -25%; width: 36vw; height: 130%; background: linear-gradient(to bottom, rgba(217, 243, 255, 0.085), transparent 62%); filter: blur(16px); transform-origin: top; }
-.cinematic-ray-one { left: 15%; transform: rotate(18deg); animation: ray-drift 29s ease-in-out infinite alternate; }
-.cinematic-ray-two { right: 6%; opacity: 0.55; transform: rotate(-16deg); animation: ray-drift 36s ease-in-out infinite alternate-reverse; }
-.cinematic-fog { position: absolute; border-radius: 9999px; filter: blur(56px); opacity: 0.55; }
-.cinematic-fog-one { top: 22%; left: -20rem; width: 56rem; height: 34rem; background: radial-gradient(ellipse, rgba(11, 41, 66, 0.44), transparent 70%); animation: fog-drift 31s ease-in-out infinite alternate; }
-.cinematic-fog-two { right: -18rem; bottom: -9rem; width: 52rem; height: 40rem; background: radial-gradient(ellipse, rgba(107, 30, 50, 0.2), transparent 70%); animation: fog-drift 38s ease-in-out infinite alternate-reverse; }
-.cinematic-grain { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.024; mix-blend-mode: soft-light; }
+.cinematic-ocean { position: fixed; z-index: 0; inset: 0; overflow: hidden; pointer-events: none; background: radial-gradient(90rem 58rem at 52% -28rem, rgba(11, 41, 66, 0.82), transparent 62%), radial-gradient(50rem 42rem at 90% 92%, rgba(107, 30, 50, 0.13), transparent 74%), linear-gradient(155deg, #02050b 0%, #071b33 48%, #02050b 100%); }
+.cinematic-ocean::before { position: absolute; inset: 0; background: repeating-radial-gradient(ellipse at 50% 105%, transparent 0 3.2rem, rgba(217, 243, 255, 0.025) 3.35rem 3.45rem, transparent 3.6rem 6.1rem); content: ""; opacity: 0.55; transform: perspective(32rem) rotateX(62deg) scale(1.5) translateY(32%); }
+.cinematic-ocean::after { position: absolute; inset: 0; background: radial-gradient(circle at 52% -3%, rgba(217, 243, 255, 0.2), transparent 17%), linear-gradient(110deg, transparent 24%, rgba(217, 243, 255, 0.045) 44%, transparent 66%); content: ""; }
+.ocean-ray { position: absolute; top: -30%; width: 28vw; height: 135%; background: linear-gradient(to bottom, rgba(217, 243, 255, 0.14), transparent 60%); filter: blur(18px); transform-origin: top; mix-blend-mode: screen; }
+.ray-a { left: 21%; animation: ray-drift 29s ease-in-out infinite alternate; transform: rotate(19deg); }.ray-b { right: 8%; opacity: 0.62; animation: ray-drift-reverse 36s ease-in-out infinite alternate; transform: rotate(-16deg); }
+.ocean-fog { position: absolute; border-radius: 9999px; filter: blur(54px); mix-blend-mode: screen; }
+.fog-a { top: 30%; left: -20rem; width: 58rem; height: 27rem; background: radial-gradient(ellipse, rgba(24, 83, 125, 0.37), transparent 68%); animation: fog-drift 31s ease-in-out infinite alternate; }.fog-b { right: -18rem; bottom: -11rem; width: 52rem; height: 34rem; background: radial-gradient(ellipse, rgba(107, 30, 50, 0.18), transparent 68%); animation: fog-drift 38s ease-in-out infinite alternate-reverse; }
+.ocean-caustic { position: absolute; right: -4%; bottom: -18%; width: min(62rem, 90vw); aspect-ratio: 1; border: 1px solid rgba(217, 243, 255, 0.08); border-radius: 48% 52% 64% 36%; box-shadow: inset 0 0 5rem rgba(90, 175, 229, 0.08), 0 0 8rem rgba(11, 41, 66, 0.3); transform: rotate(-16deg); }
 
 .ocean-background {
   position: fixed;
@@ -154,6 +153,8 @@ body::after {
 .hero-depth-marker { position: absolute; z-index: 3; top: 48%; left: clamp(1.5rem, 5vw, 5rem); display: flex; align-items: center; gap: 0.65rem; color: rgba(200, 209, 220, 0.36); font-family: var(--font-geist-mono); font-size: 0.58rem; letter-spacing: 0.12em; transform: rotate(-90deg) translateX(-50%); transform-origin: left top; }
 .hero-depth-marker i { width: 4rem; height: 1px; background: rgba(200, 209, 220, 0.25); }
 .hero-soundline { position: absolute; z-index: 3; right: clamp(1.5rem, 5vw, 5rem); bottom: 3.75rem; display: flex; align-items: end; gap: 4px; height: 2rem; opacity: 0.5; }.hero-soundline span { width: 1px; background: #c8d1dc; }.hero-soundline span:nth-child(1), .hero-soundline span:nth-child(7) { height: 28%; }.hero-soundline span:nth-child(2), .hero-soundline span:nth-child(6) { height: 62%; }.hero-soundline span:nth-child(3), .hero-soundline span:nth-child(5) { height: 42%; }.hero-soundline span:nth-child(4), .hero-soundline span:nth-child(8) { height: 100%; }
+.whale-presence { position: absolute; z-index: 2; top: 10%; right: -7%; width: min(90rem, 118vw); opacity: 0.065; pointer-events: none; transform: rotate(-5deg); animation: presence-drift 38s ease-in-out infinite alternate; }
+.prism-object { position: absolute; z-index: 4; right: clamp(4%, 11vw, 15%); bottom: 10%; width: min(32rem, 34vw); opacity: 0.85; pointer-events: none; transform-origin: center; animation: prism-object-drift 22s ease-in-out infinite alternate; }
 .cinematic-nav { border-bottom: 1px solid rgba(200, 209, 220, 0.12); background: linear-gradient(to bottom, rgba(2, 5, 11, 0.38), transparent); backdrop-filter: blur(10px); }
 .chapter-progress { position: fixed; z-index: 30; top: 50%; right: 1.8rem; display: flex; align-items: center; flex-direction: column; gap: 0.55rem; color: rgba(200, 209, 220, 0.45); font-size: 0.6rem; letter-spacing: 0.1em; transform: translateY(-50%); }.chapter-progress i { width: 1px; height: 1.7rem; background: linear-gradient(#6b1e32, rgba(200, 209, 220, 0.16)); }
 
@@ -399,17 +400,32 @@ body::after {
   to { opacity: 0.75; transform: rotate(14deg) translateX(7%); }
 }
 
+@keyframes ray-drift-reverse {
+  from { opacity: 0.36; transform: rotate(-16deg) translateX(5%); }
+  to { opacity: 0.64; transform: rotate(-20deg) translateX(-6%); }
+}
+
 @keyframes fog-drift {
   from { transform: translate3d(-4%, -2%, 0) scale(0.94); }
   to { transform: translate3d(8%, 6%, 0) scale(1.08); }
+}
+
+@keyframes presence-drift {
+  from { transform: translate3d(-3%, 2%, 0) rotate(-5deg); }
+  to { transform: translate3d(5%, -2%, 0) rotate(-3deg); }
+}
+
+@keyframes prism-object-drift {
+  from { transform: translate3d(var(--prism-x, 0), var(--prism-y, 0), 0) rotate(-8deg) scale(0.96); }
+  to { transform: translate3d(var(--prism-x, 0), var(--prism-y, 0), 0) rotate(-1deg) scale(1.03); }
 }
 
 @media (max-width: 700px) {
   .float-badge { display: none; }
   .hero-coordinate { margin-top: 3.5rem; gap: 0.75rem; font-size: 0.52rem; letter-spacing: 0.11em; }
   .hero-coordinate span:nth-child(2) { display: none; }
-  .prism-element { top: 16%; right: -15%; width: min(26rem, 78vw); opacity: 0.5; }
-  .whale-atmosphere { bottom: 12%; left: -36%; width: 48rem; }
+  .prism-object { right: -12%; bottom: 18%; width: min(26rem, 72vw); opacity: 0.58; }
+  .whale-presence { top: 18%; right: -42%; width: 66rem; opacity: 0.06; }
   .cinematic-hero { min-height: 100svh; padding-top: 7rem; padding-bottom: 2.5rem; }
   .cinematic-title { font-size: clamp(4rem, 18vw, 6rem); }
   .hero-bottomline { align-items: flex-start; flex-direction: column; margin-top: 3.5rem; }
@@ -443,11 +459,11 @@ body::after {
 
   body::before,
   body::after,
-  .prism-element,
+  .prism-object,
   .ocean-current,
-  .whale-atmosphere,
-  .cinematic-ray,
-  .cinematic-fog {
+  .whale-presence,
+  .ocean-ray,
+  .ocean-fog {
     display: none;
   }
 }
