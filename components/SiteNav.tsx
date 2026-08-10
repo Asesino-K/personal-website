@@ -25,7 +25,7 @@ export default function SiteNav({ active }: { active?: ActivePage }) {
       <div className="cinematic-nav mx-auto flex w-[calc(100%-2rem)] max-w-[92rem] items-center justify-between px-1 py-5 sm:w-[calc(100%-4rem)]">
         <Link
           aria-label="Lumen Chen home"
-          className="text-[0.68rem] font-medium uppercase tracking-[0.22em] text-zinc-200 transition-colors hover:text-white"
+          className="text-[0.68rem] font-medium uppercase tracking-[0.22em] text-slate-900 transition-colors hover:text-black"
           href="/"
         >
           <span>Lumen Chen</span>
@@ -37,8 +37,8 @@ export default function SiteNav({ active }: { active?: ActivePage }) {
               aria-current={active === link.page ? "page" : undefined}
               className={
                 active === link.page
-                  ? "text-[0.58rem] font-medium uppercase tracking-[0.15em] text-zinc-100 sm:text-[0.64rem]"
-                  : "text-[0.58rem] font-medium uppercase tracking-[0.15em] text-zinc-500 transition-colors hover:text-zinc-100 sm:text-[0.64rem]"
+                  ? "text-[0.58rem] font-medium uppercase tracking-[0.15em] text-slate-900 sm:text-[0.64rem]"
+                  : "text-[0.58rem] font-medium uppercase tracking-[0.15em] text-slate-500 transition-colors hover:text-slate-950 sm:text-[0.64rem]"
               }
               href={link.href}
               key={link.href}
